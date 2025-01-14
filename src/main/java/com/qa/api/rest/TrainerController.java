@@ -33,6 +33,7 @@ public class TrainerController {
 		return this.service.get();
 	}
 
+	@GetMapping("/getByName")
 	public List<Trainer> getByName(@RequestParam(name = "name", required = true) String name) {
 		return this.service.getByName(name);
 	}

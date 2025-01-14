@@ -33,6 +33,7 @@ public class CatController {
 		return this.service.get();
 	}
 
+	@GetMapping("/getByName")
 	public List<Cat> getByName(@RequestParam(name = "name", required = true) String name) {
 		return this.service.getByName(name);
 	}
