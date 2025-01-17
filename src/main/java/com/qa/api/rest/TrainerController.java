@@ -3,6 +3,7 @@ package com.qa.api.rest;
 import java.util.List;
 
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import com.qa.api.services.TrainerService;
 
 @RestController
 @RequestMapping("/trainers")
+@CrossOrigin
 public class TrainerController {
 
 	private TrainerService service;
@@ -21,6 +23,11 @@ public class TrainerController {
 	public TrainerController(TrainerService service) {
 		super();
 		this.service = service;
+	}
+
+	@PostMapping("/createJSON")
+	public Trainer createJSON(Trainer trainer) {
+		return this.service.create(trainer);
 	}
 
 	@PostMapping(value = "/create", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)

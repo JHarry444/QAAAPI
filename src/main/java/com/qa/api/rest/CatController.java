@@ -23,6 +23,11 @@ public class CatController {
 		this.service = service;
 	}
 
+	@PostMapping("/createJSON")
+	public Cat createJSON(Cat cat) {
+		return this.service.create(cat);
+	}
+
 	@PostMapping(value = "/create", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public Cat create(Cat cat) {
 		return this.service.create(cat);
